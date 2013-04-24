@@ -9,6 +9,14 @@ How to
 
 のような感じでイベントを受けて、処理します。
 
-`data` のキー `event` に `PRESS` / `RELEASE` が、`color` に `RED` / `BLUE` / `GREEN` / `YELLOW` が入ってきます。
+`data` のキー `event` に `PRESS` / `RELEASE` が、
+`color` に `RED` / `BLUE` / `GREEN` / `YELLOW` が入ってきます。
+
+Sample
+======
+
+http://hello-fourbeat.meteor.com/
+
+
 
 
