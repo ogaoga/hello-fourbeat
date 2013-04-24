@@ -11,12 +11,14 @@ if (Meteor.isClient) {
     }
   });
 
-  $(document).on('mousedown', 'button', function(e) {
+  // =======================================================================
+
+  $(document).on('touchstart', 'button', function(e) {
     var color = $(e.target).data('color');
     $(document).trigger('fourbeat', {'event': 'PRESS', 'color': color});
   });
 
-  $(document).on('mouseup', 'button', function(e) {
+  $(document).on('touchend', 'button', function(e) {
     var color = $(e.target).data('color');
     $(document).trigger('fourbeat', {'event': 'RELEASE', 'color': color});
   });
