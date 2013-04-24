@@ -1,1 +1,9 @@
 /* CSS declarations go here */
+
+.buttons { 
+  margin: auto;
+}
+
+button { 
+  width: 80px;
+}
