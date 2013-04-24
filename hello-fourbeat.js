@@ -1,10 +1,3 @@
-/*
-function nativeFourBeatEvent(event, color) {
-  alert(color);
-  $(document).trigger('fourbeat', {'event': event, 'color': color});
-}
-*/
-
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
     return "Welcome to hello-fourbeat.";
@@ -20,24 +13,24 @@ if (Meteor.isClient) {
 
   $(document).on('mousedown', 'button', function(e) {
     var color = $(e.target).data('color');
-    $(document).trigger('fourbeat', {'type': 'down', 'color': color});
+    $(document).trigger('fourbeat', {'event': 'PRESS', 'color': color});
   });
 
   $(document).on('mouseup', 'button', function(e) {
     var color = $(e.target).data('color');
-    $(document).trigger('fourbeat', {'type': 'up', 'color': color});
+    $(document).trigger('fourbeat', {'event': 'RELEASE', 'color': color});
   });
 
   // =======================================================================
 
   $(document).on('fourbeat', function(e, data) {
-    $('body').css('background-color', data.color);
-    /*
-    $('body').addClass('.bk-'+data.color);
-    setTimeout(function(){
-      $('body').removeClass('.bk-'+data.color);
-    }, 400);
-     */
+    console.log(data);
+    if ( data.event == 'PRESS' ) {
+      $('body').css('background-color', data.color);
+    }
+    else {
+      $('body').css('background-color', 'white');
+    }
   });
 }
 
