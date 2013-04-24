@@ -5,5 +5,15 @@
 }
 
 button { 
-  width: 80px;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+}
+
+.bk { 
+  //background-color: white;
+  -webkit-transition: background-color 300 ease 0;
+}
+.bk-RED { 
+  background-color: red;
 }

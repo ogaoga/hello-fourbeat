@@ -1,6 +1,9 @@
+/*
 function nativeFourBeatEvent(event, color) {
+  alert(color);
   $(document).trigger('fourbeat', {'event': event, 'color': color});
 }
+*/
 
 if (Meteor.isClient) {
   Template.hello.greeting = function () {
@@ -15,11 +18,6 @@ if (Meteor.isClient) {
     }
   });
 
-  $(document).on('fourbeat', function(e, data) {
-    console.log(data);
-    $('body').css('background-color', data.color);
-  });
-
   $(document).on('mousedown', 'button', function(e) {
     var color = $(e.target).data('color');
     $(document).trigger('fourbeat', {'type': 'down', 'color': color});
@@ -28,6 +26,18 @@ if (Meteor.isClient) {
   $(document).on('mouseup', 'button', function(e) {
     var color = $(e.target).data('color');
     $(document).trigger('fourbeat', {'type': 'up', 'color': color});
+  });
+
+  // =======================================================================
+
+  $(document).on('fourbeat', function(e, data) {
+    $('body').css('background-color', data.color);
+    /*
+    $('body').addClass('.bk-'+data.color);
+    setTimeout(function(){
+      $('body').removeClass('.bk-'+data.color);
+    }, 400);
+     */
   });
 }
 
